@@ -10,14 +10,14 @@ programa
 	
 	funcao inicio()
 	{
-		inteiro n, num, i, aux = 2
+		inteiro n, num, i, aux, j = 0
 		cadeia mostra = ""
 
 		faca
 		{
 			escreva("Digite quantos valores serão lidos: ")
 			leia(n)
-		}enquanto(n > 100)
+		}enquanto(n < 1 ou n > 100)
 		
 		para(i=0; i<n; i++)
 		{
@@ -25,22 +25,24 @@ programa
 			{
 			escreva("Digite um valor aleatório: ")
 			leia(num)
-			}enquanto(num < 1 ou num > 10)
+			}enquanto(num <= 1 ou num > 10000000)
 			
-			enquanto (aux <= num/2)
+			para (aux = 2; aux <= num; aux++)
 			{
 				se(num % aux == 0)
 				{
-					mostra += num + " não é primo\n"
-					aux = num
+					j++
 				}
-				senao
-				{
-					mostra += num + " é primo\n"
-				}
-				aux++
 			}
-			aux = 2
+			se(j == 1)
+			{
+				mostra += num + " é primo\n"
+			}
+			senao
+			{
+				mostra += num + " não é primo\n"
+			}
+			j = 0
 		}
 		escreva (mostra)
 	}
@@ -50,7 +52,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 477; 
+ * @POSICAO-CURSOR = 1022; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
